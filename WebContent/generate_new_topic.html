@@ -23,8 +23,9 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="input-field col s12">
-						<div id="1" class="chips"></div>
+					<div  class="input-field col s12">
+						<!--<div id="1" class="chips"></div>-->
+                        <input id="1" type="text" class="validate">
 					</div>
 				</div>
 			</form>
@@ -109,19 +110,21 @@
 						function() {
 							var word;
 							var tmp_split;
-							console.log($("#1").text());
-							if ($("#1").text() == "") {
+							console.log($("#1").val());
+                            //console.log($("#1").text);
+							if ($("#1").val() == "") {
 								word = $("#2").val().replace("_", " ")
 							} else {
-								tmp_split = $("#1").text().replace(/close/g,
+
+								tmp_split = $("#1").val().replace(/close/g,
 										",")
-								
+                                console.log(tmp_split);
 								tmp_split = tmp_split.replace(/close/g, ",")
 							}
 							console.log(tmp_split);
 
 							var sql;
-							sql = "insert into train_request (links, name, area, author) Values ('"
+								sql = "insert into train_request (links, name, area, author) Values ('"
 									+ tmp_split
 									+ "', '"
 									+ $("#topic_name").val()
@@ -136,11 +139,12 @@
 								},
 								success : function(response) {
 									console.log(response);
+									//window.history.back();
 								}
 							});
 
 						});
-	</script>
+    </script>
 </body>
 
 </html>
