@@ -1,14 +1,10 @@
 package model;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.sql.*;
 
 public abstract class DAO {
 	public static String JsonSearch(String sql) {
@@ -23,7 +19,7 @@ public abstract class DAO {
 		} 
 		try
 		{
-			String uri="jdbc:mysql://localhost:3306/localdb";
+			String uri="jdbc:mysql://" + System.getenv("DB_HOST") +"/localdb";
 			con=DriverManager.getConnection(uri,"root","DtZBAxrN57Mx");
 			PreparedStatement ps = con.prepareStatement(sql);
 			rs=ps.executeQuery();
@@ -59,7 +55,7 @@ public abstract class DAO {
 		} 
 		try
 		{
-			String uri="jdbc:mysql://localhost:3306/localdb";
+			String uri="jdbc:mysql://" + System.getenv("DB_HOST") ;
 			con=DriverManager.getConnection(uri,"root","DtZBAxrN57Mx");
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.executeUpdate(sql);
