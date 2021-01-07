@@ -19,7 +19,7 @@ public abstract class DAO {
 		} 
 		try
 		{
-			String uri="jdbc:mysql://" + System.getenv("DB_HOST") +"/localdb";
+			String uri="jdbc:mysql://" + System.getenv("DB_HOST")+ ":" + System.getenv("DB_PORT") +"/localdb";
 			con=DriverManager.getConnection(uri,"root","DtZBAxrN57Mx");
 			PreparedStatement ps = con.prepareStatement(sql);
 			rs=ps.executeQuery();
@@ -55,7 +55,7 @@ public abstract class DAO {
 		} 
 		try
 		{
-			String uri="jdbc:mysql://" + System.getenv("DB_HOST") ;
+			String uri="jdbc:mysql://" + System.getenv("DB_HOST")+ ":" + System.getenv("DB_PORT");
 			con=DriverManager.getConnection(uri,"root","DtZBAxrN57Mx");
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.executeUpdate(sql);
