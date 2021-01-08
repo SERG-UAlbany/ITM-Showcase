@@ -19,7 +19,7 @@ public abstract class DAO {
 		} 
 		try
 		{
-			String uri=(System.getenv("DB_HOST") != null &&  System.getenv("DB_PORT")!=null) ? "jdbc:mysql://" + System.getenv("DB_HOST")+ ":" + System.getenv("DB_PORT") : "jdbc:mysql://localhost:3306/";
+			String uri=(System.getenv("DB_HOST") != null &&  System.getenv("DB_PORT")!=null) ? "jdbc:mysql://" + System.getenv("DB_HOST")+ ":" + System.getenv("DB_PORT") + "/" : "jdbc:mysql://localhost:3306/";
 			con=DriverManager.getConnection(uri,"root","DtZBAxrN57Mx");
 			PreparedStatement ps = con.prepareStatement(sql);
 			rs=ps.executeQuery();
@@ -55,7 +55,7 @@ public abstract class DAO {
 		} 
 		try
 		{
-			String uri=(System.getenv("DB_HOST") != null &&  System.getenv("DB_PORT")!=null) ? "jdbc:mysql://" + System.getenv("DB_HOST")+ ":" + System.getenv("DB_PORT") : "jdbc:mysql://localhost:3306/";
+			String uri=(System.getenv("DB_HOST") != null &&  System.getenv("DB_PORT")!=null) ? "jdbc:mysql://" + System.getenv("DB_HOST")+ ":" + System.getenv("DB_PORT") + "/": "jdbc:mysql://localhost:3306/";
 			con=DriverManager.getConnection(uri,"root","DtZBAxrN57Mx");
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.executeUpdate(sql);
